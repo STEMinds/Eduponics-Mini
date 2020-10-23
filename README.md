@@ -11,6 +11,19 @@ Feel free to follow along or just go to the bottom to understand how to connect 
 ## Configuring WiFi for the MQTT client
 
 All the code should work AS IS the only modification required is for the *boot.py* python file to modify the WiFi SSID and Password in order for the ESP32 to connect successfully to your home WiFi. From there, the Eduponics Mini can be controlled from anywhere, even outside of your own network.
+
+## Firmwares
+
+Any ESP32 firmware will work on the ESP32 but we can't promise software support for all the firmwares.
+for This moment we only support ESP32 MicroPython but we might add software examples and drivers for other firmwares in the future.
+
+Here is a list of popular firmwares you could explore using the Eduponics Mini ESP32 board:
+
+* [ESP-IDF Generic framework](https://github.com/espressif/esp-idf)
+* [MicroPython](https://micropython.org/download/esp32/)
+* [ESPDuino Firmware](http://www.espruino.com/Download)
+* [Lua RTOS](https://github.com/whitecatboard/Lua-RTOS-ESP32)
+
 ## License
 
 Some of the code is taken from other repositories, proper credits and license is given at the beginning of each file.
