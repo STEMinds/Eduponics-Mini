@@ -12,7 +12,8 @@ int is_empty(){
 }
 
 void loop() {
-  // when pump on low the relay is closed, no water is going through
+  // if digital read is 0 means no water
+  // if digital read is 1 means there is water
   if(is_empty()){
     Serial.println("The water container is empty"); 
   }else{
