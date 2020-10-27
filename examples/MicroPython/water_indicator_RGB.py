@@ -1,6 +1,6 @@
 """
 MicroPython water indication with RGB NeoPixel Example
-https://github.com/STEMinds/eduponics-mini-upython
+https://github.com/STEMinds/eduponics-mini
 MIT License
 Copyright (c) 2020 STEMinds
 

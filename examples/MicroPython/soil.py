@@ -47,8 +47,6 @@ def value_in_percentage(val):
 
 # set adc (analog to digital) on pin 35
 adc = ADC(Pin(35))
-# read analog input
-adc.read()
 # set 11dB input attenuation (voltage range roughly 0.0v - 3.6v)
 adc.atten(ADC.ATTN_11DB)
 

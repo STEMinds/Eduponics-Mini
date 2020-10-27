@@ -1,6 +1,6 @@
 """
 MicroPython deep sleep wakeup by button example
-https://github.com/STEMinds/eduponics-mini-upython
+https://github.com/STEMinds/eduponics-mini
 MIT License
 Copyright (c) 2020 STEMinds
 

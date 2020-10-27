@@ -1,6 +1,6 @@
 """
 MicroPython 12V Pump using relay example
-https://github.com/STEMinds/eduponics-mini-upython
+https://github.com/STEMinds/eduponics-mini
 MIT License
 Copyright (c) 2020 STEMinds
 
