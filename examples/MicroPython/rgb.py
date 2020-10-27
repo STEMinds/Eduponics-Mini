@@ -1,6 +1,6 @@
 """
 MicroPython RGB NeoPixel LED example
-https://github.com/STEMinds/eduponics-mini-upython
+https://github.com/STEMinds/eduponics-mini
 MIT License
 Copyright (c) 2020 STEMinds
 
@@ -31,7 +31,7 @@ np = neopixel.NeoPixel(machine.Pin(14), 1)
 np[0] = (255, 0, 0) # set to red, full brightness
 np.write() # save changes
 time.sleep(1)
-np[0] = (0, 175.5, 0) # set to green, half brightness
+np[0] = (0, 175, 0) # set to green, half brightness
 np.write() # save changes
 time.sleep(1)
 np[0] = (0, 0, 85) # set to blue, quarter brightness
