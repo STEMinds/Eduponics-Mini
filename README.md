@@ -1,4 +1,4 @@
-# STEMinds Eduponics Mini smart agriculture kit 
+# STEMinds Eduponics Mini smart agriculture kit
 
 In this repository you'll find all the example code necessary to get started with your Eduponics mini ESP32 learning kit.
 The MQTT client found in the eduponics_mqtt folder can be used with the Eduponics Mini app which is currently available on the Android play store (search for "Eduponics") and soon will be available on the Apple appstore.
@@ -19,8 +19,7 @@ At This moment we only support the MicroPython framework but we might add softwa
 
 Here is a list of popular frameworks you could explore using the Eduponics Mini ESP32 board:
 
-* [ESP-IDF Generic framework](https://github.com/espressif/esp-idf)
-* [MicroPython](https://micropython.org/download/esp32/)
+* [ESP-IDF Generic Firmware (MicroPython, also work on Arduino IDE)](https://micropython.org/download/esp32/)
 * [ESPDuino Firmware](http://www.espruino.com/Download)
 * [Lua RTOS](https://github.com/whitecatboard/Lua-RTOS-ESP32)
 
