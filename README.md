@@ -12,7 +12,7 @@ Feel free to follow along or just go to the bottom to understand how to connect 
 
 All the code should work AS IS the only modification required is for the *boot.py* python file to modify the WiFi SSID and Password in order for the ESP32 to connect successfully to your home WiFi. From there, the Eduponics Mini can be controlled from anywhere, even outside of your own network.
 
-## Frameworks
+## Firmwares
 
 Any ESP32 supported framework should work on the Eduponics Mini but we can't promise software support for all the firmwares.
 At This moment we only support the MicroPython framework but we might add software examples and drivers for other frameworks in the future.
@@ -22,6 +22,19 @@ Here is a list of popular frameworks you could explore using the Eduponics Mini 
 * [ESP-IDF Generic Firmware (MicroPython, also work on Arduino IDE)](https://micropython.org/download/esp32/)
 * [ESPDuino Firmware](http://www.espruino.com/Download)
 * [Lua RTOS](https://github.com/whitecatboard/Lua-RTOS-ESP32)
+
+# How to use the IDF3 firmware
+
+The IDF3 ESP32 firmware is generic firmware. it will work both on Arduino IDE and MicroPython.
+We install and test the MicroPython Generic IDF3 firmware when we ship the kits, if you want to use the Arduino IDE you can BUT note the following:
+
+Once you use the Arduino IDE you might not be able to use Thonny IDE (MicroPython) again so easily, Thonny IDE might tell you:
+
+      Could not enter REPL. Trying again with 1 second waiting time...
+
+This is due to Arduino IDE removing REPL (The MicroPython interpreter) in order to solve it, go to your Thonny IDE settings under interpreter and press "Open the dialog for installing or upgrading MicroPython" and select the firmware esp32-idf3-20200902-v1.13.bin (version might be different) which you can download from the links above.
+
+This will install REPL again and you'll be able to use MicroPython without any problem. if you'll use Arduino IDE again, you might need to repeat the process.
 
 ## License
 
