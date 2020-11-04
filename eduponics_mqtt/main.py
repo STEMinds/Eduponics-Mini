@@ -1,5 +1,5 @@
 """
-MicroPython 12V Pump using relay example
+MicroPython MQTT Eduponics APP Client
 https://github.com/STEMinds/eduponics-mini-upython
 MIT License
 Copyright (c) 2020 STEMinds
@@ -23,11 +23,9 @@ SOFTWARE.
 """
 
 from umqttsimple import MQTTClient
+from dependencies import *
 import machine
 import time
-import bh1750
-#from bme import *
-import dht
 import json
 
 # set adc (analog to digital) on pin 35
@@ -36,15 +34,15 @@ adc = machine.ADC(machine.Pin(35))
 adc.atten(machine.ADC.ATTN_11DB)
 
 # Configure light sensor
-light_sensor = bh1750.LightSensor()
+light_sensor = LightSensor()
 
 # Configure BME280
 # setup I2C connection
 i2c = machine.I2C(scl=machine.Pin(15), sda=machine.Pin(4))
 # Initialize BME280 object with default address 0x76
-#bme_sensor = BME280(i2c=i2c)
+bme_sensor = BME280(i2c=i2c)
 # initialize dht object, DHT11 coonected to IO19
-d = dht.DHT11(machine.Pin(19))
+#d = dht.DHT11(machine.Pin(19))
 
 # define water level sensor as INPUT on IO pin number 21
 water_level = machine.Pin(21, machine.Pin.IN)
@@ -53,7 +51,7 @@ water_level = machine.Pin(21, machine.Pin.IN)
 pump = machine.Pin(23, machine.Pin.OUT)
 
 # MQTT Unique ID
-UUID = "ac1656f4-c1fd-11ea-b72a-acde48001122"
+UUID = "YOUR_UUID_GENERATED_ID"
 # MQTT Topics
 topics = ["plants/soil","plants/environment","plants/water"]
 
@@ -89,16 +87,16 @@ def get_environmental_data():
     # get light from the light sensor
     lux = int(light_sensor.readLight())
     # get bme280 sensor data
-    #bme280_values = bme_sensor.values
-    #temperature = bme280_values[0].replace("C","")
-    #pressure = bme280_values[1]
-    #humidity = bme280_values[2].replace("%","")
+    bme280_values = bme_sensor.values
+    temperature = bme280_values[0].replace("C","")
+    pressure = bme280_values[1]
+    humidity = bme280_values[2].replace("%","")
     # get DHT11 sensor data
     # measure sensor data
-    d.measure()
+    #d.measure()
     # get temperature and humidity
-    temperature = d.temperature()
-    humidity = d.humidity()
+    #temperature = d.temperature()
+    #humidity = d.humidity()
     # get water quantity
     water_quantity = water_level.value()
 
