@@ -30,7 +30,7 @@ import esp32
 import dht
 
 # configure wakeup deep sleep functionality
-wake_up = machine.Pin(36, mode = Pin.IN)
+wake_up = Pin(36, mode = Pin.IN)
 # level parameter can be: esp32.WAKEUP_ANY_HIGH or esp32.WAKEUP_ALL_LOW
 esp32.wake_on_ext0(pin = wake_up, level = esp32.WAKEUP_ANY_HIGH)
 
@@ -38,13 +38,13 @@ esp32.wake_on_ext0(pin = wake_up, level = esp32.WAKEUP_ANY_HIGH)
 np = neopixel.NeoPixel(Pin(14), 1)
 
 # define water level sensor as INPUT on IO pin number 21
-water_level = machine.Pin(21, machine.Pin.IN)
+water_level = Pin(21, Pin.IN)
 
 # define pump on pin IO23 as OUTPUT
-pump = machine.Pin(23, machine.Pin.OUT)
+pump = Pin(23, Pin.OUT)
 
 # initialize dht object, DHT11 coonected to IO19
-d = dht.DHT11(machine.Pin(19))
+#d = dht.DHT11(Pin(19))
 
 # setup I2C connection
 i2c = I2C(scl=Pin(15), sda=Pin(4))
@@ -188,7 +188,7 @@ def test_rgb():
     np.write() # save changes
     time.sleep(1)
     print("[-] Setting RGB Green")
-    np[0] = (0, 175.5, 0) # set to green, half brightness
+    np[0] = (0, 175, 0) # set to green, half brightness
     np.write() # save changes
     time.sleep(1)
     print("[-] Setting RGB Blue")
