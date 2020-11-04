@@ -1,5 +1,7 @@
 # STEMinds Eduponics Mini smart agriculture kit
 
+![](./images/eduponics_featured.png)
+
 In this repository you'll find all the example code necessary to get started with your Eduponics mini ESP32 learning kit.
 The MQTT client found in the eduponics_mqtt folder can be used with the Eduponics Mini app which is currently available on the Android play store (search for "Eduponics") and soon will be available on the Apple appstore.
 
@@ -11,6 +13,12 @@ Feel free to follow along or just go to the bottom to understand how to connect 
 ## Configuring WiFi for the MQTT client
 
 All the code should work AS IS the only modification required is for the *boot.py* python file to modify the WiFi SSID and Password in order for the ESP32 to connect successfully to your home WiFi. From there, the Eduponics Mini can be controlled from anywhere, even outside of your own network.
+
+Another thing not to forget is to generate a unique UUID either using MicroPython or through online service. in *main.py* where it says:
+
+      UUID = "YOUR_UUID_GENERATED_ID"
+
+Make sure to enter the UUID you've generated and input it into the app.
 
 ## Firmwares
 
