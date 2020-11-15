@@ -31,7 +31,7 @@ Here is a list of popular frameworks you could explore using the Eduponics Mini 
 * [ESPDuino Firmware](http://www.espruino.com/Download)
 * [Lua RTOS](https://github.com/whitecatboard/Lua-RTOS-ESP32)
 
-# How to use the IDF3 firmware
+## How to use the IDF3 firmware
 
 The IDF3 ESP32 firmware is generic firmware. it will work both on Arduino IDE and MicroPython.
 We install and test the MicroPython Generic IDF3 firmware when we ship the kits, if you want to use the Arduino IDE you can BUT note the following:
@@ -43,6 +43,13 @@ Once you use the Arduino IDE you might not be able to use Thonny IDE (MicroPytho
 This is due to Arduino IDE removing REPL (The MicroPython interpreter) in order to solve it, go to your Thonny IDE settings under interpreter and press "Open the dialog for installing or upgrading MicroPython" and select the firmware esp32-idf3-20200902-v1.13.bin (version might be different) which you can download from the links above.
 
 This will install REPL again and you'll be able to use MicroPython without any problem. if you'll use Arduino IDE again, you might need to repeat the process.
+
+## Eduponics Mini Extension board
+
+The Extension board allows to connect extra 4 soil moisture sensors (analog input devices) and extra 4 pumps (digital output devices with 12V support).
+The board designed using ADS1115 for ADC support and MCP23017 for GPIO control, both chips use I2C protocol which means we can control all the functionalities using only 2 pins (SDA and SCL) it also means it's 100% compatible with Raspberry Pi as the RPi don't have a built in ADC.
+
+The Extension board code can be found at [extension_module/](extension_module/) folder
 
 ## License
 
