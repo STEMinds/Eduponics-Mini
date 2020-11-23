@@ -47,13 +47,23 @@ bme_sensor = BME280(i2c=i2c)
 # define water level sensor as INPUT on IO pin number 21
 water_level = machine.Pin(21, machine.Pin.IN)
 
-# define pump on pin IO23 as OUTPUT
+# define pump on pin IO23 as OUTPUT, define pump state
 pump = machine.Pin(23, machine.Pin.OUT)
+pump_state = False
 
 # MQTT Unique ID
 UUID = "YOUR_UUID_GENERATED_ID"
 # MQTT Topics
 topics = ["plants/soil","plants/environment","plants/water"]
+
+def handle_water_level(pin):
+    global pump_state
+    # water level triggered, turn off the pump
+    # wait for 0.3 seconds to make sure it's just a little below the water sensor
+    # else the pump might become unstable
+    time.sleep(0.3)
+    pump.value(0)
+    pump_state = False
 
 def get_soil_moisture():
 
@@ -111,25 +121,15 @@ def get_environmental_data():
     return str(data).replace("'",'"')
 
 def water_plant():
-
-    # turn on the pump
-    pump.value(1)
-    # get water quantity
-    water_quantity = water_level.value()
-    # if water level is not empty, keep doing it
-    while not water_quantity == 1:
-        # not empty and plant water is not full yet, keep giving water
-        # check if soil moisture is bigger than 60
-        if(int(json.loads(get_soil_moisture())["moisture"].replace("%","")) > 60):
-            # enough water, stop giving water
-            break;
-        # wait for half a second and check again
-        time.sleep(0.5)
-        # get water quantity updated value
-        water_quantity = water_level.value()
-
-    # turn the pump off, either plant has enough water or no water at all.
-    pump.value(0)
+    global pump_state
+    if(pump_state or water_level.value() == 1):
+        # turn off the pump
+        pump.value(0)
+        pump_state = False
+    else:
+        # turn on the pump
+        pump.value(1)
+        pump_state = True
     return True
 
 def on_message_callback(topic, msg):
@@ -188,8 +188,9 @@ except OSError as e:
 
 # configure few variables
 last_message = 0
-message_interval = 1
-previous_soil_moisture = "0%"
+message_interval = 5
+# set callback on the water level sensor, if no water stop the pump
+water_level.irq(trigger=machine.Pin.IRQ_RISING, handler=handle_water_level)
 
 while True:
     try:
@@ -200,13 +201,10 @@ while True:
         # check if the last published data wasn't less than message_interval
         if (time.time() - last_message) > message_interval:
             # get soil moisture
-            current_soil_moisture = get_soil_moisture()
-            # check if previous data and new data is the same
-            if(previous_soil_moisture != current_soil_moisture):
-                # it's not the same, publish the new data
-                previous_soil_moisture = current_soil_moisture
-                client.publish("%s/plants/soil" % UUID, current_soil_moisture)
-                #print("[-] published soil moisture")
+            soil_moisture = get_soil_moisture()
+            # publish soil moisture data
+            client.publish("%s/plants/soil" % UUID, soil_moisture)
+            #print("[-] published soil moisture")
 
             # update environmetal data
             env = get_environmental_data()
