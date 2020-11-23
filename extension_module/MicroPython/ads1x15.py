@@ -138,7 +138,7 @@ class ADS1115:
                      _MODE_SINGLE | _OS_SINGLE | _GAINS[self.gain] |
                      _CHANNELS[(channel1, channel2)])
 
-    def read(self, rate=4, channel1=0, channel2=None):
+    def read_raw(self, rate=4, channel1=0, channel2=None):
         """Read voltage between a channel and GND.
            Time depends on conversion rate."""
         self._write_register(_REGISTER_CONFIG, (_CQUE_NONE | _CLAT_NONLAT |
@@ -181,3 +181,8 @@ class ADS1115:
         """Get the last reading from the continuous measurement."""
         res = self._read_register(_REGISTER_CONVERT)
         return res if res < 32768 else res - 65536
+
+    def read(self,pin):
+        raw = self.read_raw(channel1=pin)
+        voltage = self.raw_to_v(raw)
+        return {"raw":raw,"voltage":voltage}
