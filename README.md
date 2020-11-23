@@ -2,6 +2,8 @@
 
 ![](./images/eduponics_featured.png)
 
+The Eduponics Mini is ESP32 based smart agriculture modular kit that enables you to build your own smart garden with ease.
+
 In this repository you'll find all the example code necessary to get started with your Eduponics mini ESP32 learning kit.
 The MQTT client found in the eduponics_mqtt folder can be used with the Eduponics Mini app which is currently available on the Android play store (search for "Eduponics") and soon will be available on the Apple appstore.
 
@@ -31,6 +33,8 @@ Here is a list of popular frameworks you could explore using the Eduponics Mini 
 * [ESPDuino Firmware](http://www.espruino.com/Download)
 * [Lua RTOS](https://github.com/whitecatboard/Lua-RTOS-ESP32)
 
+You might also consider a generic ESP32-IDF3 image with built in ulab (a numpy like library) this firmware can be downloaded from here: [esp32_generic_idf3_ulab](https://gitlab.com/rcolistete/micropython-samples/-/blob/master/ESP32/Firmware/v1.12_with_ulab/ulab_v0.54.0_2020-07-29/Generic_flash-4MB/esp32_idf3_ulab_dp_thread_v1.12-663-gea4670d5a_2020-07-29.bin)
+
 ## How to use the IDF3 firmware
 
 The IDF3 ESP32 firmware is generic firmware. it will work both on Arduino IDE and MicroPython.
@@ -46,8 +50,9 @@ This will install REPL again and you'll be able to use MicroPython without any p
 
 ## Eduponics Mini Extension board
 
-The Extension board allows to connect extra 4 soil moisture sensors (analog input devices) and extra 4 pumps (digital output devices with 12V support).
-The board designed using ADS1115 for ADC support and MCP23017 for GPIO control, both chips use I2C protocol which means we can control all the functionalities using only 2 pins (SDA and SCL) it also means it's 100% compatible with Raspberry Pi as the RPi don't have a built in ADC.
+The Extension board allows to connect extra 4 soil moisture sensors (or any other analog input devices) and extra output devices (digital output devices with 12V support by using relays). The board designed using ADS1115 for ADC support and MCP23017 for GPIO control with some advance functionalities such as interrupt on change and precise analog data reading.
+
+Both chips use the I2C protocol which means we can control all the functionalities using only 2 pins (SDA and SCL) it also means it's 100% compatible with Raspberry Pi as it doesn't have a built in ADC.
 
 The Extension board code can be found at [extension_module/](extension_module/) folder
 
