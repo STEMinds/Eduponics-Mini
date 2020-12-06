@@ -23,7 +23,6 @@ SOFTWARE.
 """
 
 from machine import ADC,Pin
-import neopixel
 import time
 
 # set max val and min val of the sensor
@@ -32,8 +31,6 @@ import time
 # maxVal can be recieved by making sure the sensor is dry in the clear air
 minVal = 710
 maxVal = 4095
-# configure neopixel
-np = neopixel.NeoPixel(Pin(14), 1)
 
 def value_in_percentage(val):
     # scale the value based on maxVal and minVal
@@ -57,23 +54,11 @@ try:
         value = adc.read()
         # get the value in percentage, convert it to int
         estimated = int(value_in_percentage(value).replace("%",""))
-        if(estimated >= 0 and estimated < 35):
-            # turn RED color, it's critical
-            np[0] = (255, 0, 0) # set to red, full brightness
-        if(estimated >= 35 and estimated < 65):
-            # turn YELLOW color, it's alright for now
-            np[0] = (255, 255, 0) # set to yellow, full brightness
-        if(estimated >= 65 and estimated <= 100):
-            # turn GREEN color, we have enough water
-            np[0] = (0, 255, 0) # set to green, full brightness
-        # write changes of the RGB LED color
-        np.write()
         # print the analog results (moisture)
         print("sensor value: %s" % value)
         print("sensor value in percentage: %s" % value_in_percentage(value))
         # sleep for 1 second
         time.sleep(1)
 except KeyboardInterrupt:
-    # keyboard interrupt, let's turn off LED
-    np[0] = (0, 0, 0)
-    np.write()
+    # close the program
+    exit()
