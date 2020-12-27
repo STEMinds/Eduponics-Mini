@@ -7,6 +7,13 @@ The Eduponics Mini is ESP32 based smart agriculture modular kit that enables you
 In this repository you'll find all the example code necessary to get started with your Eduponics mini ESP32 learning kit.
 The MQTT client found in the eduponics_mqtt folder can be used with the Eduponics Mini app which is currently available on the Android play store (search for "Eduponics") and soon will be available on the Apple appstore.
 
+## We are Crowdfunding!
+
+![](./images/eduponics_mini_crowdsupply.png)
+
+Eduponics Mini platform will be [Crowdfunding on CrowdSupply](https://www.crowdsupply.com/steminds/eduponics-mini), make sure to visit our crowdfunding page and pay attention to updates!
+early backers can enjoy discounted price over our cutting edge Agri-tech hardware as well as support our doings and help us continue the development of the Eduponics platform!
+
 ## Documentation
 
 The entire documentation is freely available at STEMinds wiki: [wiki.steminds.com](https://wiki.steminds.com/kits/eduponics_mini/introduction/)
