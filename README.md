@@ -1,3 +1,11 @@
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=bugs)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=ncloc)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=security_rating)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
+
 # STEMinds Eduponics Mini smart agriculture kit
 
 ![](./images/eduponics_featured.png)
