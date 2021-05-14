@@ -13,14 +13,17 @@
 The Eduponics Mini is ESP32 based smart agriculture modular kit that enables you to build your own smart garden with ease.
 
 In this repository you'll find all the example code necessary to get started with your Eduponics mini ESP32 learning kit.
-The MQTT client found in the eduponics_mqtt folder can be used with the Eduponics Mini app which is currently available on the Android play store (search for "Eduponics") and soon will be available on the Apple appstore.
+The MQTT client found in the [Micropython repository](https://github.com/STEMinds/micropython-eduponics) within the eduponics_mqtt folder, it can be used with the Eduponics Mini app which is currently available on the Android play store (search for "Eduponics") and soon will be available on the Apple appstore.
 
-## We are Crowdfunding!
+## Eduponics-Micropython
+
+***The Micropython library has been moved to [github.com/STEMinds/micropython-eduponics](https://github.com/STEMinds/micropython-eduponics), if you are looking for the Micropython code, please make sure to visit the correct repository.***
+
+## Crowdfunded successfully!
 
 ![](./images/eduponics_mini_crowdsupply.png)
 
-Eduponics Mini platform will be [Crowdfunding on CrowdSupply](https://www.crowdsupply.com/steminds/eduponics-mini), make sure to visit our crowdfunding page and pay attention to updates!
-early backers can enjoy discounted price over our cutting edge Agri-tech hardware as well as support our doings and help us continue the development of the Eduponics platform!
+Eduponics Mini successfully crowdfunded on [CrowdSupply](https://www.crowdsupply.com/steminds/eduponics-mini), you can enter the website now and pre-order your own.
 
 ## Documentation
 
@@ -76,7 +79,7 @@ The Extension board code can be found at [extension_module/](extension_module/) 
 Some of the code is taken from other repositories, proper credits and license is given at the beginning of each file.
 All the example code and files are under MIT License.
 
-Copyright (c) 2020 STEMinds
+Copyright (c) 2020-2021 STEMinds
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
