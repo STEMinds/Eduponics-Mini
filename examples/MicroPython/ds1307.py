@@ -61,7 +61,7 @@ class DS1307(object):
                 0 # subseconds
             )
         buf = bytearray(7)
-        buf[0] = self._dec2bcd(datetime[6]) & 0x7F # second, msb = CH, 1=halt, 0=go
+        buf[0] = self._dec2bcd(datetime[6]) & 0x7F # seconds
         buf[1] = self._dec2bcd(datetime[5]) # minute
         buf[2] = self._dec2bcd(datetime[4]) # hour
         buf[3] = self._dec2bcd(datetime[3] + self.weekday_start) # weekday

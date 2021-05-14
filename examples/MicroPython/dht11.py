@@ -33,9 +33,8 @@ def calculate_humidex(T,RH):
     dewpoint_c = 243.04 * (math.log(RH/100,math.e)+((17.625*T)/(243.04+T)))/(17.625-math.log(RH/100,math.e)-((17.625*T)/(243.04+T)))
     # convert celsius to Kelvin
     dewpoint_k = (dewpoint_c + 273.15)
-    # find the humidex using the dewpoint we found earlier
+    # find the humidex using the dewpoint we found earlier and return it
     humidex = T + (0.5555)*(6.11 * math.exp(5417.7530 * ((1/273.16) - (1/dewpoint_k))) - 10.0)
-    # return  humidex
     return humidex
 
 # initialize dht object, DHT11 coonected to IO19
@@ -64,9 +63,8 @@ try:
             # Turn on red RGB
             np[0] = (255, 0, 0) # set to red, full brightness
 
-        # write the data to the RGB
+        # write the data to the RGB and print temperature and humidity
         np.write()
-        # print temperature and humidity
         print("--------------------------")
         print("temperature : %s" % temperature)
         print("humidity : %s" % humidity)

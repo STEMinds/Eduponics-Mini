@@ -430,7 +430,6 @@ class BME280:
              (self.dig_H2 / 65536.0 * (1.0 + self.dig_H6 / 67108864.0 * h *
                                        (1.0 + self.dig_H3 / 67108864.0 * h))))
         humidity = h * (1.0 - self.dig_H1 * h / 524288.0)
-        # humidity = max(0, min(100, humidity))
 
         if result:
             result[0] = temp
@@ -513,7 +512,7 @@ class DS1307(object):
                 0 # subseconds
             )
         buf = bytearray(7)
-        buf[0] = self._dec2bcd(datetime[6]) & 0x7F # second, msb = CH, 1=halt, 0=go
+        buf[0] = self._dec2bcd(datetime[6]) & 0x7F # second
         buf[1] = self._dec2bcd(datetime[5]) # minute
         buf[2] = self._dec2bcd(datetime[4]) # hour
         buf[3] = self._dec2bcd(datetime[3] + self.weekday_start) # weekday
@@ -562,7 +561,6 @@ _MCP_OLAT         = const(0x0a) # R/W Output Latch Register
 # Config register (IOCON) bits
 _MCP_IOCON_INTPOL = const(2)
 _MCP_IOCON_ODR    = const(4)
-# _MCP_IOCON_HAEN = const(8) # no used - for spi flavour of this chip
 _MCP_IOCON_DISSLW = const(16)
 _MCP_IOCON_SEQOP  = const(32)
 _MCP_IOCON_MIRROR = const(64)
@@ -572,15 +570,13 @@ _MCP_IOCON_BANK   = const(128)
 class Port():
     # represents one of the two 8-bit ports
     def __init__(self, port, mcp):
-        self._port = port & 1  # 0=PortA, 1=PortB
+        self._port = port & 1
         self._mcp = mcp
 
     def _which_reg(self, reg):
         if self._mcp._config & 0x80 == 0x80:
-            # bank = 1
             return reg | (self._port << 4)
         else:
-            # bank = 0
             return (reg << 1) + self._port
 
     def _flip_property_bit(self, reg, condition, bit):
@@ -916,12 +912,12 @@ class VirtualPin():
 
     def input(self, pull=None):
         # if pull, enable pull up, else read
-        self._port.mode = self._flip_bit(self._port.mode, 1) # mode = input
+        self._port.mode = self._flip_bit(self._port.mode, 1)
         if pull is not None:
             self._port.pullup = self._flip_bit(self._port.pullup, pull & 1) # toggle pull up
 
     def output(self, val=None):
         # if val, write, else read
-        self._port.mode = self._flip_bit(self._port.mode, 0) # mode = output
+        self._port.mode = self._flip_bit(self._port.mode, 0)
         if val is not None:
             self._port.gpio = self._flip_bit(self._port.gpio, val & 1)

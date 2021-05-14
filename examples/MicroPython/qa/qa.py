@@ -21,9 +21,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-
+import machine
 from machine import I2C,ADC,Pin
-from dependencies import *
+from eduponics import bme280,at24c02,ds1307,bh1750
 import neopixel
 import time
 import esp32
@@ -52,7 +52,7 @@ i2c = I2C(scl=Pin(15), sda=Pin(4))
 def test_eeprom():
     input("[-] Testing EEPROM ... press enter when ready ...")
     print("")
-    eeprom = AT24C32N(i2c)
+    eeprom = at24c02.AT24C32N(i2c)
     print("[-] Reading 32 bytes ...")
     print(eeprom.read(0, 32))
     print("[-] Writing 11 bytes - 'Hello World' ...")
@@ -82,7 +82,7 @@ def test_dht11():
 
 def test_ds1307():
     # initialize ds object
-    ds = DS1307(i2c)
+    ds = ds1307.DS1307(i2c)
     # activate ds1307
     ds.halt(False)
     # set time
@@ -100,7 +100,7 @@ def test_ds1307():
 
 def test_bh1750():
     # initialize sensor
-    sensor = LightSensor()
+    sensor = bh1750.BH1750()
     # initialize counter
     counter = 0
     input("[-] Testing BH1750 sensor 5 times, press enter when ready ...")
@@ -118,17 +118,17 @@ def test_bh1750():
 
 def test_bme280():
     # Initialize BME280 object with default address 0x76
-    bme280 = BME280(i2c=i2c)
+    sensor = bme280.BME280(i2c=i2c)
     # setup counter
     counter = 0
     input("[-] Reading BME280 values 5 times, press enter when ready ...")
     print("")
     while counter != 4:
         # get the values from the BME280 library
-        values = bme280.values
-        altitude = bme280.altitude
-        dew_point = bme280.dew_point
-        sea_level = bme280.sealevel
+        values = sensor.values
+        altitude = sensor.altitude
+        dew_point = sensor.dew_point
+        sea_level = sensor.sealevel
         # print the values every 1 second
         print("------------------------")
         print("Temperature: %s" % values[0])

@@ -179,7 +179,6 @@ class BME280:
              (self.dig_H2 / 65536.0 * (1.0 + self.dig_H6 / 67108864.0 * h *
                                        (1.0 + self.dig_H3 / 67108864.0 * h))))
         humidity = h * (1.0 - self.dig_H1 * h / 524288.0)
-        # humidity = max(0, min(100, humidity))
 
         if result:
             result[0] = temp

@@ -35,8 +35,12 @@ ADS1115 -->  UNO
 */
 
 #include "ADS1115.h"
+#include <MCP23017.h>
 
 ADS1115 adc0(0x48);
+
+#define MCP23017_ADDR 0x20
+MCP23017 mcp = MCP23017(MCP23017_ADDR);
 
 // Wire ADS1115 ALERT/RDY pin to pin 25
 const int alertReadyPin = 25;
@@ -72,6 +76,19 @@ void setup() {
     Serial.print("HighThreshold="); Serial.println(adc0.getHighThreshold(),BIN);
     Serial.print("LowThreshold="); Serial.println(adc0.getLowThreshold(),BIN);
     #endif
+
+    // init MCP unit
+    mcp.init();
+
+    mcp.portMode(MCP23017Port::I, 0); //Port A as output
+    mcp.portMode(MCP23017Port::J, 0); //Port B as output
+    mcp.portMode(MCP23017Port::K, 0); //Port C as output
+    mcp.portMode(MCP23017Port::L, 0); //Port D as output
+
+    mcp.writeRegister(MCP23017Register::GPIO_I, 0x00);  //Reset port A
+    mcp.writeRegister(MCP23017Register::GPIO_J, 0x00);  //Reset port B
+    mcp.writeRegister(MCP23017Register::GPIO_K, 0x00);  //Reset port C
+    mcp.writeRegister(MCP23017Register::GPIO_L, 0x00);  //Reset port D
 }
 
 /** Poll the assigned pin for conversion status

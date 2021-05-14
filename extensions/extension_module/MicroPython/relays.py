@@ -20,10 +20,14 @@ mcp.pin(3, mode=0, value=0)
 # open relays
 print("Turn on relays")
 mcp[0].output(1)
-
-#time.sleep(5)
-
+mcp[1].output(1)
+mcp[2].output(1)
+mcp[3].output(1)
+# wait 3 seconds
+time.sleep(3)
 # close relays
-#print("Turn off relays")
-#mcp[0].output(0)
-
+print("Turn off relays")
+mcp[0].output(0)
+mcp[1].output(0)
+mcp[2].output(0)
+mcp[3].output(0)

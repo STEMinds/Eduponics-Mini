@@ -38,6 +38,7 @@ _MCP_OLAT         = const(0x0a) # R/W Output Latch Register
 # Config register (IOCON) bits
 _MCP_IOCON_INTPOL = const(2)
 _MCP_IOCON_ODR    = const(4)
+# _MCP_IOCON_HAEN = const(8) # no used - for spi flavour of this chip
 _MCP_IOCON_DISSLW = const(16)
 _MCP_IOCON_SEQOP  = const(32)
 _MCP_IOCON_MIRROR = const(64)
