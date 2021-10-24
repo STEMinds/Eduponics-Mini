@@ -27,7 +27,7 @@ Eduponics Mini successfully crowdfunded on [CrowdSupply](https://www.crowdsupply
 
 ## Documentation
 
-The entire documentation is freely available at STEMinds wiki: [wiki.steminds.com](https://wiki.steminds.com/kits/eduponics_mini/introduction/)
+The entire documentation is freely available at STEMinds wiki: [wiki.steminds.com](https://wiki.steminds.com/kits/eduponics_mini/introduction)
 Feel free to follow along or just go to the bottom to understand how to connect and use the Eduponics mobile app combined with Eduponics mini kit.
 
 ## Configuring WiFi for the MQTT client
