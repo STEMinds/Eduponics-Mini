@@ -19,15 +19,9 @@ The MQTT client found in the [Micropython repository](https://github.com/STEMind
 
 ***The Micropython library has been moved to [github.com/STEMinds/micropython-eduponics](https://github.com/STEMinds/micropython-eduponics), if you are looking for the Micropython code, please make sure to visit the correct repository.***
 
-## Crowdfunded successfully!
-
-![](./images/eduponics_mini_crowdsupply.png)
-
-Eduponics Mini successfully crowdfunded on [CrowdSupply](https://www.crowdsupply.com/steminds/eduponics-mini), you can enter the website now and pre-order your own.
-
 ## Documentation
 
-The entire documentation is freely available at STEMinds wiki: [wiki.steminds.com](https://wiki.steminds.com/kits/eduponics_mini/introduction)
+The entire documentation is freely available at STEMinds docs: [docs.steminds.com](https://docs.steminds.com/kits/eduponics_mini/introduction)
 Feel free to follow along or just go to the bottom to understand how to connect and use the Eduponics mobile app combined with Eduponics mini kit.
 
 ## Configuring WiFi for the MQTT client
