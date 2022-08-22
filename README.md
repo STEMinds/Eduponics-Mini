@@ -10,7 +10,9 @@
 
 ![](./images/eduponics_featured.png)
 
-The Eduponics Mini is ESP32 based smart agriculture modular kit that enables you to build your own smart garden with ease.
+The Eduponics Mini is ESP32 based smart agriculture modular kit that enables you to build your own smart garden with ease. 
+
+If you want to learn more about IoT and soil moisture sensors [check our most recent posted article](https://steminds.com/iot-soil-moisture-sensors-smart-garden-irrigation-system/).
 
 In this repository you'll find all the example code necessary to get started with your Eduponics mini ESP32 learning kit.
 The MQTT client found in the [Micropython repository](https://github.com/STEMinds/micropython-eduponics) within the eduponics_mqtt folder, it can be used with the Eduponics Mini app which is currently available on the Android play store (search for "Eduponics") and soon will be available on the Apple appstore.
