@@ -15,7 +15,7 @@ The MQTT client found in the [Micropython repository](https://github.com/STEMind
 
 ## Eduponics-Arduino
 
-***The Arduino library has been moved to [[github.com/STEMinds/micropython-eduponics](https://github.com/STEMinds/micropython-eduponics)](https://github.com/STEMinds/platformio-eduponics-mini), if you are looking for the Arduino C code, please make sure to visit the correct repository. Please note, the Arduino Platformio code base is not fully supported, it's still in development process. MicroPython contains all the resources you need to get started.***
+***The Arduino library has been moved to [github.com/STEMinds/micropython-eduponics](https://github.com/STEMinds/platformio-eduponics-mini), if you are looking for the Arduino C code, please make sure to visit the correct repository. Please note, the Arduino Platformio code base is not fully supported, it's still in development process. MicroPython contains all the resources you need to get started.***
 
 ## Documentation
 
