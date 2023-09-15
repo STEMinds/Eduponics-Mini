@@ -1,11 +1,3 @@
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=bugs)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=ncloc)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=security_rating)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=STEMinds_Eduponics-Mini&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=STEMinds_Eduponics-Mini)
-
 # STEMinds Eduponics Mini smart agriculture kit
 
 ![](./images/eduponics_featured.png)
@@ -20,6 +12,10 @@ The MQTT client found in the [Micropython repository](https://github.com/STEMind
 ## Eduponics-Micropython
 
 ***The Micropython library has been moved to [github.com/STEMinds/micropython-eduponics](https://github.com/STEMinds/micropython-eduponics), if you are looking for the Micropython code, please make sure to visit the correct repository.***
+
+## Eduponics-Arduino
+
+***The Arduino library has been moved to [[github.com/STEMinds/micropython-eduponics](https://github.com/STEMinds/micropython-eduponics)](https://github.com/STEMinds/platformio-eduponics-mini), if you are looking for the Arduino C code, please make sure to visit the correct repository. Please note, the Arduino Platformio code base is not fully supported, it's still in development process. MicroPython contains all the resources you need to get started.***
 
 ## Documentation
 
@@ -58,24 +54,22 @@ Once you use the Arduino IDE you might not be able to use Thonny IDE (MicroPytho
 
       Could not enter REPL. Trying again with 1 second waiting time...
 
-This is due to Arduino IDE removing REPL (The MicroPython interpreter) in order to solve it, go to your Thonny IDE settings under interpreter and press "Open the dialog for installing or upgrading MicroPython" and select the firmware esp32-idf3-20200902-v1.13.bin (version might be different) which you can download from the links above.
+This is due to Arduino IDE removing REPL (The MicroPython interpreter) in order to solve it, go to your Thonny IDE settings under interpreter and press "Open the dialog for installing or upgrading MicroPython" and select the firmware **firmware_name_v1.20.bin** (version or name might be different) which you can download from the links above.
 
 This will install REPL again and you'll be able to use MicroPython without any problem. if you'll use Arduino IDE again, you might need to repeat the process.
 
 ## Eduponics Mini Extension board
 
-The Extension board allows to connect extra 4 soil moisture sensors (or any other analog input devices) and extra output devices (digital output devices with 12V support by using relays). The board designed using ADS1115 for ADC support and MCP23017 for GPIO control with some advance functionalities such as interrupt on change and precise analog data reading.
+The Extension board allows to connect extra 4 soil moisture sensors (or any other analog input devices) and extra output devices (digital output devices with 12V support by using relays). The board designed using ADS1115 for ADC support and MCP23017 for GPIO control with some advance functionalities such as interrupt on change and precise analog data reading. If you are using Eduponics v2.0, instead of MCP23017 we replaced it with PCA9535.
 
 Both chips use the I2C protocol which means we can control all the functionalities using only 2 pins (SDA and SCL) it also means it's 100% compatible with Raspberry Pi as it doesn't have a built in ADC.
-
-The Extension board code can be found at [extension_module/](extension_module/) folder
 
 ## License
 
 Some of the code is taken from other repositories, proper credits and license is given at the beginning of each file.
 All the example code and files are under MIT License.
 
-Copyright (c) 2020-2021 STEMinds
+Copyright (c) 2020-2023 STEMinds
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
